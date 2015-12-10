@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VozAide</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_rssfeed_page">RSSFeedPage</string>
+    <string name="title_activity_retrive_xml">RetriveXML</string>
+    <string name="title_activity_add_new_rss_feed">AddNewRssFeed</string>
+    <string name="title_activity_download_xml">DownloadXML</string>
+    <string name="strAddNewRssFeed">ADD NEW RSS FEED</string>
+    <string name="title_activity_add_new_rss_feed_page">AddNewRssFeedPage</string>
+    <string name="addLink">Add Link</string>
+    <string name="title_activity_save_feed_page">SaveFeedPage</string>
+    <string name="title_activity_read_rss_feed">ReadRssFeed</string>
+    <string name="title_activity_feed_message_page">FeedMessagePage</string>
+    <string name="ReadRssFeed">Read Rss Feed</string>
+    <string name="title_activity_check">Description</string>
+    <string name="title_activity_description_page">DescriptionPage</string>
+    <string name="title_activity_filter_rss_feed">FilterRssFeed</string>
+
+</resources>

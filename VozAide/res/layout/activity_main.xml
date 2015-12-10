@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.project.vozaide.MainActivity" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="103dp"
+                android:layout_height="144dp"
+                android:src="@drawable/ic_launcher" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.72"
+                android:src="@drawable/ic_transparent_logo" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/readRssFeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ReadRssFeed"
+            android:onClick="readFeedPage"/>
+
+        <Button
+            android:id="@+id/buttonFilterFeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filter Feed"
+            android:onClick="filterFeed" />
+
+        <Button
+            android:id="@+id/btnNewRssFeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="addNewRssFeedPage"
+            android:text="@string/strAddNewRssFeed" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.vozaide"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddNewRssFeedPage"
+            android:label="@string/title_activity_add_new_rss_feed_page"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.project.vozaide.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SaveFeedPage"
+            android:label="@string/title_activity_save_feed_page"
+            android:parentActivityName=".AddNewRssFeedPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.project.vozaide.AddNewRssFeedPage" />
+        </activity>
+        <activity
+            android:name=".ReadRssFeed"
+            android:label="@string/title_activity_read_rss_feed"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.project.vozaide.MainActivity" />
+        </activity>
+        <activity
+            android:name=".FeedMessagePage"
+            android:label="@string/title_activity_feed_message_page"
+            android:parentActivityName=".ReadRssFeed" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.project.vozaide.ReadRssFeed" />
+        </activity>
+        <activity
+            android:name=".DescriptionPage"
+            android:label="@string/title_activity_description_page"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name=".FilterRssFeed"
+            android:label="@string/title_activity_filter_rss_feed"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.project.vozaide.MainActivity" />
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>
