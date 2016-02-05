@@ -18,9 +18,19 @@
         android:orientation="vertical" >
 
         <TextView
+            android:id="@+id/textViewFeedMsgPageStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:gravity="center"
+            android:text="Status: Silent"
+            android:textColor="#2EFE2E" />
+
+        <TextView
             android:id="@+id/feedTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="30dp"
             android:text="Title"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 

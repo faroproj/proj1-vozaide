@@ -9,43 +9,57 @@
     tools:context="com.project.vozaide.FilterRssFeed" >
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textViewTitleKeyword"
+            android:id="@+id/textViewFilterPageStatus"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:gravity="center"
+            android:text="Status: Silent"
+            android:textColor="#2EFE2E" />
+
+        <ListView
+            android:id="@+id/listFields"
+            android:layout_width="match_parent"
+            android:layout_height="188dp" >
+        </ListView>
+
+        <TextView
+            android:id="@+id/textViewAddNewField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Keyword"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="Add New Field"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000" />
 
         <EditText
-            android:id="@+id/editTextKeyword"
+            android:id="@+id/editTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter keyword to find feed." >
+            android:hint="Enter Field" />
 
-            <requestFocus />
-        </EditText>
-
-        <Button
-            android:id="@+id/buttonFilter"
+        <EditText
+            android:id="@+id/editTextFieldKeywrds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Filter"
-            android:onClick="filterFeed" />
+            android:ems="10"
+            android:hint="Enter Keywords seperated by commas" />
 
-        <TextView
-            android:id="@+id/textViewFilteredFeed"
+        <Button
+            android:id="@+id/btnSaveField"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TextView" />
+            android:layout_height="wrap_content"
+            android:text="Add Field" 
+            android:onClick="addField"/>
 
     </LinearLayout>
 

@@ -25,6 +25,7 @@ public class DescriptionPage extends Activity {
 	Button close;
 	String desc;
 	AndroidTTS tts;
+	public static boolean descCheck = true;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,6 +60,12 @@ public class DescriptionPage extends Activity {
 		  public void run() {
 			  if(!tts.isSpeaking()){
 				  btnToggle.setChecked(false);
+				  if(MainActivity.voiceActivated){
+					  DescriptionPage.descCheck = false;
+					  FeedMessagePage.check = true;
+					  finish();
+					  tts.destroy();
+				  }
 			  }
 			  handler1.postDelayed(this, 500);
 		  }
@@ -72,7 +79,9 @@ public class DescriptionPage extends Activity {
 		close.setOnClickListener(new Button.OnClickListener() {
 			
 			public void onClick(View v) {	
-				finish();
+				DescriptionPage.descCheck = false;
+				FeedMessagePage.check = true;
+					finish();
 				tts.destroy();
 			}
 		});

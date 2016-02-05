@@ -18,5 +18,6 @@
     <string name="title_activity_check">Description</string>
     <string name="title_activity_description_page">DescriptionPage</string>
     <string name="title_activity_filter_rss_feed">FilterRssFeed</string>
+    <string name="title_activity_read_text">ReadText</string>
 
 </resources>

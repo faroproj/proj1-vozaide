@@ -28,6 +28,8 @@ public class AndroidTTS implements OnInitListener {
         this.allowed = allowed;
     }
     public void speak(String text){
+    	text = text.replace("-", " ");
+    	text = text.replace("'", " ");
         if(ready){
             hash = new HashMap<String,String>();
             hash.put(TextToSpeech.Engine.KEY_PARAM_STREAM, 

@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutionException;
 
 import com.project.model.Feed;
 import com.project.model.FetchFeed;
-import com.project.model.RssFeedDAO;
+import com.project.model.SystemDAO;
 import com.project.model.WriteOutputFile;
 
 import android.content.Intent;
@@ -21,7 +21,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SaveFeedPage extends ActionBarActivity {
-	RssFeedDAO rssFeedDao;
+	SystemDAO rssFeedDao;
 	public static Feed f;
 	EditText eTitle;
 	EditText eLang;
@@ -56,7 +56,7 @@ public class SaveFeedPage extends ActionBarActivity {
 		eDesc.setText(f.getDescription());
 		
 		
-		rssFeedDao = new RssFeedDAO(this);
+		rssFeedDao = new SystemDAO(this);
 		
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -65,7 +65,7 @@ public class SaveFeedPage extends ActionBarActivity {
 		} catch (ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch(Exception e){
+   		} catch(Exception e){
 			e.printStackTrace();
 			finish();
 			Toast.makeText(getApplicationContext(),

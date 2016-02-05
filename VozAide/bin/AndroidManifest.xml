@@ -67,6 +67,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.project.vozaide.MainActivity" />
         </activity>
+        <activity
+            android:name=".ReadText"
+            android:label="@string/title_activity_read_text" 
+			 android:parentActivityName=".MainActivity" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

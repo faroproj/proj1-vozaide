@@ -12,7 +12,6 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 
 import android.util.Log;
@@ -27,19 +26,14 @@ public class XMLFormatter {
 			File myFile = new File("/sdcard/"+feed.getTitle()+".xml");
 			myFile.createNewFile();
 			FileOutputStream fOut = new FileOutputStream(myFile);
-			OutputStreamWriter myOutWriter = 
-									new OutputStreamWriter(fOut);
-			
-			XmlSerializer xmlSerializer = Xml.newSerializer();            
-		   
-			StringWriter writer = new StringWriter();
-		    
-			
-			xmlSerializer.setOutput(writer);
-		    xmlSerializer.startDocument("UTF-8", true);
+			OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
+		  	XmlSerializer xmlSerializer = Xml.newSerializer();
+		    StringWriter writter = new StringWriter();
+		
+		    xmlSerializer.setOutput(writter);
+			xmlSerializer.startDocument("UTF-8", true);
 		    xmlSerializer.startTag("", "rss");
 		    xmlSerializer.startTag("", "channel");
-		    	
 		    	xmlSerializer.startTag("", "title");
 		        xmlSerializer.text(feed.getTitle());
 		    	xmlSerializer.endTag("", "title");
@@ -62,38 +56,59 @@ public class XMLFormatter {
 		        xmlSerializer.text(feed.getPubDate());
 		    	xmlSerializer.endTag("", "pubDate");
 		    
+		    	 xmlSerializer.endDocument();
+				   
+				    xmlSerializer.flush();
+		    	String dataWrite = writter.toString();
+				 
+			    fOut.write(dataWrite.getBytes());
+		    	
 		    int pos = 0;
-		    while(feed.getEntries().size() > pos){
-		    	xmlSerializer.startTag("", "item");
+		    int size = feed.getEntries().size();
+		    while(size > pos){
+		    	XmlSerializer serializer = Xml.newSerializer();
+			    StringWriter writer = new StringWriter();
+			    serializer.setOutput(writer);
+				
+		    
+		    	serializer.startTag(null, "item");
 		    	
-		    	xmlSerializer.startTag("", "title");
-		        xmlSerializer.text(feed.getEntries().get(pos).getTitle());
-		    	xmlSerializer.endTag("", "title");
-		    	xmlSerializer.startTag("", "link");
-		        xmlSerializer.text(feed.getEntries().get(pos).getLink());
-		    	xmlSerializer.endTag("", "link");
-		    	xmlSerializer.startTag("", "description");
-		        xmlSerializer.text(feed.getEntries().get(pos).getDescription());
-		    	xmlSerializer.endTag("", "description");
-		    	xmlSerializer.startTag("", "guid");
-		        xmlSerializer.text(feed.getEntries().get(pos).getGuid());
-		    	xmlSerializer.endTag("", "guid");
-		    	xmlSerializer.startTag("", "pubDate");
-		        xmlSerializer.text(feed.getEntries().get(pos).getPubDate());
-		    	xmlSerializer.endTag("", "pubDate");
+		    	serializer.startTag(null, "title");
+		        serializer.text(feed.getEntries().get(pos).getTitle());
+		    	serializer.endTag(null, "title");
 		    	
-		    	xmlSerializer.endTag("", "item");
+		    	serializer.startTag(null, "link");
+		        serializer.text(feed.getEntries().get(pos).getLink());
+		    	serializer.endTag(null, "link");
+		    	
+		    	serializer.startTag(null, "description");
+		        serializer.text(feed.getEntries().get(pos).getDescription());
+		    	serializer.endTag(null, "description");
+		    	
+		    	serializer.startTag(null, "guid");
+		        serializer.text(feed.getEntries().get(pos).getGuid());
+		    	serializer.endTag(null, "guid");
+		    	
+		    	serializer.startTag(null, "pubDate");
+		        serializer.text(feed.getEntries().get(pos).getPubDate());
+		    	serializer.endTag(null, "pubDate");
+		    	
+		    	serializer.endTag(null, "item");
+		    	
+		    	serializer.endDocument();
+				   
+				serializer.flush();
+		    	
+		    	fOut.write(writer.toString().getBytes());
 		    	pos++;
 		    }
 		   
 		   
-		    xmlSerializer.endTag("", "channel");
-		    xmlSerializer.endTag("", "rss");
-		    xmlSerializer.endDocument();
-		    xmlSerializer.flush();
-		    String dataWrite = writer.toString();
-		    Log.d("------>", dataWrite);
-		   // fOut.write(dataWrite.getBytes());
+		   
+		   
+		    String endData = "<channel><rss>";
+		 
+		    fOut.write(endData.getBytes());
 		    fOut.close();
 			
 		}catch (IllegalStateException e) {

@@ -10,6 +10,8 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="colorPrimary">#ff1d79b1</item>
+        <item name="colorPrimaryDark">#ff084d95</item>
     </style>
 
     <!-- Application theme. -->
@@ -17,4 +19,5 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+   
 </resources>

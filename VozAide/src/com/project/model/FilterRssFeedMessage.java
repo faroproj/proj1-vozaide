@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Log;
+import android.widget.Toast;
 
 public class FilterRssFeedMessage {
 	public Feed feed;
@@ -24,19 +25,29 @@ public class FilterRssFeedMessage {
 		return feed;
 	}
 	
-	public List<FeedMessage> msg(String key){
-		String regExp = ".*\\s"+key.toLowerCase()+"\\s.*|^"+key.toLowerCase()+"\\s.*|.*\\s"+key.toLowerCase()+"$";
+	public List<FeedMessage> msg(String k){
 		List<FeedMessage> feedMsg = feed.getEntries();
 		List<FeedMessage> resMsg = new ArrayList<FeedMessage>();
 		
-		int index = 0;
+		String[] splitKeywords = k.split(",");;
 		
+		int loop=0;
+		
+		while(splitKeywords.length > loop){
+		String key = splitKeywords[loop];
+		
+		String regExp = ".*\\s"+key.toLowerCase()+"\\s.*|^"+key.toLowerCase()+"\\s.*|.*\\s"+key.toLowerCase()+"$";
+		
+		
+		int index = 0;
 		while(feedMsg.size() > index){
 		String check = feedMsg.get(index).getTitle().toLowerCase();
 		if(check.matches(regExp)){
 			resMsg.add(feedMsg.get(index));
 		}
 		index++;
+		}
+		loop++;
 		}
 		return resMsg;
 		
